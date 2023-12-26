@@ -26,12 +26,13 @@ echo "正在从https://github.com/starlgz/asscan下载masscan、locations.json�
 wget -O masscan https://github.com/starlgz/asscan/raw/main/masscan
 wget -O locations.json https://github.com/starlgz/asscan/raw/main/locations.json
 wget -O iptest https://github.com/starlgz/asscan/raw/main/iptest
+# 移动文件到asscan文件夹
+mv masscan locations.json iptest ~/asscan/
 
 # 赋予权限
-chmod +x masscan iptest
-
-# ... (后续部分继续保持不变)
-
+function set_permissions() {
+    chmod 777 masscan iptest locations.json
+}
 
 # 脚本其余部分...
 
