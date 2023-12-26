@@ -32,6 +32,13 @@ mkdir -p ~/asscan
 # 移动文件到asscan文件夹
 mv masscan locations.json iptest ~/asscan/
 
+}
+
+# 赋予权限
+function set_permissions() {
+    chmod 777 masscan iptest locations.json
+}
+
 # 脚本其余部分...
 
 
