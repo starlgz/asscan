@@ -1,5 +1,39 @@
 #!/bin/bash
 # asscan 获取 CF 反代节点
+#!/bin/bash
+# asscan 获取 CF 反代节点
+
+# Telegram Bot相关信息
+BOT_TOKEN="6675378760:AAHhaEwkI4KLKIzzGrl9efNLSO0mm-_rCpc"
+CHANNEL_ID="-1002013348832"
+
+# 上传文件到Telegram频道
+function send_to_telegram() {
+    local file="$1"
+    local caption="$2"
+    
+    curl -F document=@"$file" -F chat_id="$CHANNEL_ID" -F caption="$caption" \
+         -H "Content-Type:multipart/form-data" \
+         "https://api.telegram.org/bot$BOT_TOKEN/sendDocument"
+}
+
+# 下载文件
+echo "正在从https://github.com/starlgz/asscan下载masscan、locations.json、iptest文件..."
+wget -O masscan https://github.com/starlgz/asscan/raw/main/masscan
+wget -O locations.json https://github.com/starlgz/asscan/raw/main/locations.json
+wget -O iptest https://github.com/starlgz/asscan/raw/main/iptest
+
+# 赋予权限
+chmod +x masscan iptest
+
+# 新建asscan文件夹
+mkdir -p ~/asscan
+
+# 移动文件到asscan文件夹
+mv masscan locations.json iptest ~/asscan/
+
+# 脚本其余部分...
+
 
 echo "本脚需要用root权限执行masscan扫描"
 echo "请自行确认当前是否以root权限运行"
@@ -225,22 +259,3 @@ then
 else
 	main
 fi
-
-# 在脚本的适当位置添加以下代码
-
-# Telegram Bot相关信息
-BOT_TOKEN="6675378760:AAHhaEwkI4KLKIzzGrl9efNLSO0mm-_rCpc"
-CHANNEL_ID="-1002013348832"
-
-# 上传文件到Telegram频道
-function send_to_telegram() {
-    local file="$1"
-    local caption="$2"
-    
-    curl -F document=@"$file" -F chat_id="$CHANNEL_ID" -F caption="$caption" \
-         -H "Content-Type:multipart/form-data" \
-         "https://api.telegram.org/bot$BOT_TOKEN/sendDocument"
-}
-
-# 调用函数发送CSV文件
-send_to_telegram "AS$asn-$port.csv" "AS$asn-$port 结果"
