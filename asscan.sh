@@ -17,6 +17,10 @@ function send_to_telegram() {
          "https://api.telegram.org/bot$BOT_TOKEN/sendDocument"
 }
 
+#!/bin/bash
+
+# ... (前面部分保持不变)
+
 # 下载文件
 echo "正在从https://github.com/starlgz/asscan下载masscan、locations.json、iptest文件..."
 wget -O masscan https://github.com/starlgz/asscan/raw/main/masscan
@@ -26,18 +30,8 @@ wget -O iptest https://github.com/starlgz/asscan/raw/main/iptest
 # 赋予权限
 chmod +x masscan iptest
 
-# 新建asscan文件夹
-mkdir -p ~/asscan
+# ... (后续部分继续保持不变)
 
-# 移动文件到asscan文件夹
-mv masscan locations.json iptest ~/asscan/
-
-}
-
-# 赋予权限
-function set_permissions() {
-    chmod 777 masscan iptest locations.json
-}
 
 # 脚本其余部分...
 
