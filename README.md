@@ -1,3 +1,4 @@
 ```
-bash <(curl -sSL https://raw.githubusercontent.com/starlgz/python-install/main/install_uninstall_python.sh)
+curl -o asscan.sh https://raw.githubusercontent.com/starlgz/asscan/main/asscan.sh && chmod +x asscan.sh
+
 ```
