@@ -1,7 +1,5 @@
 #!/bin/bash
 # asscan 获取 CF 反代节点
-#!/bin/bash
-# asscan 获取 CF 反代节点
 
 # Telegram Bot相关信息
 BOT_TOKEN="6675378760:AAHhaEwkI4KLKIzzGrl9efNLSO0mm-_rCpc"
@@ -17,22 +15,32 @@ function send_to_telegram() {
          "https://api.telegram.org/bot$BOT_TOKEN/sendDocument"
 }
 
-#!/bin/bash
+# 下载文件函数
+function download_file() {
+    local file_url="$1"
+    local file_name="$2"
 
-# ... (前面部分保持不变)
+    if [ ! -f "$file_name" ]; then
+        echo "正在从 $file_url 下载 $file_name..."
+        wget -O "$file_name" "$file_url"
+    else
+        echo "$file_name 已经存在，跳过下载."
+    fi
+}
 
 # 下载文件
-echo "正在从https://github.com/starlgz/asscan下载masscan、locations.json、iptest文件..."
-wget -O masscan https://github.com/starlgz/asscan/raw/main/masscan
-wget -O locations.json https://github.com/starlgz/asscan/raw/main/locations.json
-wget -O iptest https://github.com/starlgz/asscan/raw/main/iptest
+download_file "https://github.com/starlgz/asscan/raw/main/masscan" "masscan"
+download_file "https://github.com/starlgz/asscan/raw/main/locations.json" "locations.json"
+download_file "https://github.com/starlgz/asscan/raw/main/iptest" "iptest"
+
 # 移动文件到asscan文件夹
 mv masscan locations.json iptest ~/asscan/
 
 # 赋予权限
-function set_permissions() {
-    chmod 777 masscan iptest locations.json
-}
+chmod 777 ~/asscan/masscan ~/asscan/iptest ~/asscan/locations.json
+
+# ... (其他部分保持不变)
+
 
 # 脚本其余部分...
 
