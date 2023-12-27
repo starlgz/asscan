@@ -1,4 +1,4 @@
 ```
-curl -o asscan.sh https://raw.githubusercontent.com/starlgz/asscan/main/asscan.sh && chmod +x asscan.sh
+mkdir -p asscan && wget -qO- https://github.com/starlgz/asscan/archive/master.tar.gz | tar xvz --strip-components=1 -C asscan && chmod -R 755 asscan
 
 ```
