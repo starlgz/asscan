@@ -244,3 +244,8 @@ function send_to_telegram() {
 
 # 调用函数发送CSV文件
 send_to_telegram "AS$asn-$port.csv" "AS$asn-$port 结果"
+# 在发送到Telegram的后面添加以下代码
+
+# 删除已发送的CSV文件
+rm -f "AS$asn-$port.csv"
+echo "已删除文件: AS$asn-$port.csv"
