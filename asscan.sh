@@ -229,8 +229,8 @@ fi
 # 在脚本的适当位置添加以下代码
 
 # Telegram Bot相关信息
-BOT_TOKEN="6675378760:AAHhaEwkI4KLKIzzGrl9efNLSO0mm-_rCpc"
-CHANNEL_ID="-1002013348832"
+BOT_TOKEN="7168278327:AAFtHUkxKrYfTP8Z6aH2be-AjUoEOGKJGRg"
+CHANNEL_ID="-1002140404669"
 
 # 上传文件到Telegram频道
 function send_to_telegram() {
