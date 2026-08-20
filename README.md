@@ -95,9 +95,3 @@ asscan/
 2. **免责声明**：本项目仅供网络技术交流与合规网络测速使用，请勿用于任何未经授权的未成年目标网络探测或恶意网络攻击。
 
 ---
-
-## 👤 作者与支持
-
-- **Author**: [@starlgz](https://github.com/starlgz)
-- **GitHub**: [https://github.com/starlgz/asscan](https://github.com/starlgz/asscan)
-- 欢迎提交 Issue 与 Pull Request 共同完善！
